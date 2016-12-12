@@ -1,4 +1,4 @@
-feature 'listing a space' do
+feature 'Listing a space' do
 
   scenario 'user can add a new space with a name' do
     visit '/spaces'
