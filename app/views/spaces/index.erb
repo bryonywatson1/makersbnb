@@ -1,0 +1,11 @@
+<h1> Spaces </h1>
+
+<form method='get' action='/spaces/new'>
+  <input type='submit' value='List a space'>
+</form>
+
+<% @spaces.each do |space| %>
+<div>
+  Name: <%= space.name %>
+</div>
+<% end %>
