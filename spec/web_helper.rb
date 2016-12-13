@@ -7,7 +7,7 @@ def sign_up(email: "example@email.com", password: "1234", password_confirmation:
   click_button "Sign up"
 end
 
-def add_space(name: 'London house', description: 'Test description', price: '100', available_from: '01/01/01', available_to: '02/02/02')
+def add_space(name: 'London house', description: 'Test description', price: '100', available_from: '16/12/13', available_to: '16/12/14')
   User.create(email: "example@email.com", password: "1234", password_confirmation: "1234")
   sign_in(email: "example@email.com", password: "1234")
   click_button('Add a space')
