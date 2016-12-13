@@ -1,5 +1,6 @@
 <html>
 <head>
+  <h4><%=flash[:notice] ||= flash[:errors] %></h4>
 </head>
 <body>
   <h4><%= flash[:notice] ||= flash[:errors] %></h4>

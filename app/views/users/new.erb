@@ -4,6 +4,7 @@
   </head>
   <body>
     <h1>Sign Up</h1>
+    <h4><%=flash[:notice] ||= flash[:errors] %></h4>
     <table>
       <form action="/users" method="POST">
         <tr>
