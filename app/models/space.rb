@@ -10,5 +10,6 @@ class Space
   property :available_to, Date
 
   belongs_to :user
+  has n, :available_dates, :through => Resource
 
 end
