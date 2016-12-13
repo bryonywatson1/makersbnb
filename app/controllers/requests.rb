@@ -8,7 +8,7 @@ class MakersBnb < Sinatra::Base
   end
 
   get "/requests" do
-    
+    @spaces = Space.all(user_id: current_user.id)
     erb :"/requests/index"
   end
 
