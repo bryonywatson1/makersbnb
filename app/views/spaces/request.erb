@@ -9,4 +9,6 @@
   Price per night: £<%= @space.price %>
 </div>
 
-Request to book
+<form method='post' action='/request/<%= @space.id %>' >
+  <input type='submit' value='Request to book'>
+</form>

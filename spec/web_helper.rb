@@ -16,3 +16,12 @@ def add_space(name: 'London house', description: 'Test description', price: '100
   fill_in :price, with: price
   click_button('Add space')
 end
+
+def send_request
+  add_space
+  click_button('Sign out')
+  User.create(email: "test@email.com", password: "1234", password_confirmation: "1234")
+  sign_in(email: "test@email.com", password: "1234")
+  click_button('View space')
+  click_button('Request to book')
+end
