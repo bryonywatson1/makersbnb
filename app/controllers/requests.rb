@@ -1,9 +1,11 @@
 class MakersBnb < Sinatra::Base
 
   post '/requests/:id' do
-    Request.create(:user  => current_user,
-                   :space => Space.first(id: params[:id]))
-
+    date = Date.parse(params[:requested_date])
+    date1 = AvailableDate.first(date: date)
+    request = Request.create(:user  => current_user,
+                  :available_date_space => AvailableDateSpace.first(space_id: params[:id], available_date_id: date1.id))
+    p request
     redirect '/spaces'
   end
 
