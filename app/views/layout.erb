@@ -6,7 +6,7 @@
 <body>
 <% if current_user %>
    <div id='welcome'>
-     welcome, @<%= current_user.email %>!
+     welcome, <%= current_user.email %>!
      <form method='post' action='/sessions'>
        <input id="welcome_message" type='hidden' name='_method' value='delete'>
        <input id="sign_out" class="button" type='submit' value='Sign out'>

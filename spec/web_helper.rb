@@ -8,7 +8,8 @@ def sign_up(email: "example@email.com", password: "1234", password_confirmation:
 end
 
 def list_space(name: 'London house', description: 'Test description', price: '100')
-  visit '/spaces'
+  User.create(email: "example@email.com", password: "1234", password_confirmation: "1234")
+  sign_in(email: "example@email.com", password: "1234")
   click_button('List a space')
   fill_in :name, with: name
   fill_in :description, with: description
