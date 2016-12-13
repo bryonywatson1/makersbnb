@@ -1,0 +1,5 @@
+describe AvailableDate do
+
+  
+
+end
