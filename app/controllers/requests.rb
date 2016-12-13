@@ -12,6 +12,10 @@ class MakersBnb < Sinatra::Base
     erb :"/requests/index"
   end
 
-
+  post "/requests/booking/:id" do
+    request = Request.first(id: params[:id])
+    request.update(:status => "Confirmed")
+    redirect to "/requests"
+  end
 
 end
