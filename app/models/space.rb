@@ -7,4 +7,6 @@ class Space
   property :description, Text
   property :price, Integer
 
+  belongs_to :user
+
 end

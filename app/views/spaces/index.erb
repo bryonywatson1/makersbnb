@@ -1,5 +1,3 @@
-
-
 <h1> Spaces </h1>
 
 <form method='get' action='/spaces/new'>
@@ -15,6 +13,9 @@
 </div>
 <div>
   Price per night: £<%= space.price %>
+</div>
+<div>
+  Owner: <%= space.user.email %>
 </div>
 
   <form method='get' action='/spaces/<%= space.id %>' >
