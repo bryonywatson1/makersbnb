@@ -8,6 +8,7 @@ feature 'Confirming a request' do
   scenario 'viewing requests I have received' do
     click_button "Requests"
     expect(page).to have_content("Requests I've received")
+    expect(page).to have_content("London house")
   end
 
 end

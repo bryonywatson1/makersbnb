@@ -8,6 +8,7 @@ class MakersBnb < Sinatra::Base
   end
 
   get "/requests" do
+    
     erb :"/requests/index"
   end
 
