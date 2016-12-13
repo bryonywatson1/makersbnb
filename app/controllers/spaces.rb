@@ -18,7 +18,7 @@ class MakersBnb < Sinatra::Base
                   :user => current_user)
     available_dates = (Date.parse(params[:available_from])..Date.parse(params[:available_to])).to_a
     available_dates.each do |available_date|
-      AvailableDate.create(date: available_date)
+      AvailableDate.first_or_create(date: available_date)
     end
 
     redirect '/spaces'
