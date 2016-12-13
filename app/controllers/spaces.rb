@@ -1,6 +1,6 @@
 class MakersBnb < Sinatra::Base
 
-
+enable :sessions
   get '/spaces' do
     @spaces = Space.all
     erb :'spaces/index'
@@ -27,6 +27,14 @@ class MakersBnb < Sinatra::Base
   get '/spaces/:id' do
     @space = Space.first(id: params[:id])
     erb :'/spaces/request'
+  end
+
+  post '/spaces/filter' do
+    session[:filter_date] = params[:filter_date]
+    filter_date = session[:filter_date]
+    available_date = AvailableDate.first
+    @spaces = filter_date ? available_date.spaces : []
+    redirect '/spaces'
   end
 
 
