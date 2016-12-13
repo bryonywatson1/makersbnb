@@ -15,12 +15,14 @@
   Price per night: £<%= space.price %>
 </div>
 <div>
+  Available from: <%=space.available_from%> to <%=space.available_to%>
+</div>
+<div>
   Owner: <%= space.user.email %>
 </div>
 
-  <form method='get' action='/spaces/<%= space.id %>' >
+  <form method='get' action='/spaces/<%= space.id %>'>
     <input type='submit' value='View space'>
   </form>
-<div>
 
 <% end %>
