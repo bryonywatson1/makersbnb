@@ -5,4 +5,7 @@ class AvailableDate
   property :id, Serial
   property :date, Date
 
+  has n, :spaces, :through => Resource
+
+
 end
