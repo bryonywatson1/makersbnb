@@ -9,8 +9,7 @@ feature "User sign in" do
   end
 
   scenario "with incorrect credentials" do
-   sign_in(email: "example@email.com", password: "5678")
-   expect(page).to have_content "The email or password is incorrect"
- end
-
+    sign_in(email: "example@email.com", password: "5678")
+    expect(page).to have_content "The email or password is incorrect"
+  end
 end
