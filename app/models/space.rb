@@ -6,15 +6,14 @@ class Space
   property :name, String
   property :description, Text
   property :price, Integer
-  property :available_from, Date
-  property :available_to, Date
+  property :dates, Text
 
   belongs_to :user
 
   # has n, :requests
 
-  has n, :available_date_spaces
-  has n, :available_dates, :through => :available_date_spaces
+  # has n, :available_date_spaces
+  # has n, :available_dates, :through => :available_date_spaces
   has n, :requests
 
 

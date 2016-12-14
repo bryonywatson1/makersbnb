@@ -11,16 +11,12 @@ enable :sessions
   end
 
   post '/spaces' do
+    dates = (Date.parse(params[:available_from])..Date.parse(params[:available_to])).to_a.join(",")
+
     space = Space.create(name: params[:name],
                   description: params[:description],
-                  price: params[:price], available_from: params[:available_from],
-                  available_to: params[:available_to],
+                  price: params[:price], dates: dates,
                   :user => current_user)
-    available_dates = (Date.parse(params[:available_from])..Date.parse(params[:available_to])).to_a
-    available_dates.each do |available_date|
-      space.available_dates << AvailableDate.first_or_create(date: available_date)
-    end
-    space.save
     redirect '/spaces'
   end
 
