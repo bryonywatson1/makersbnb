@@ -5,16 +5,17 @@ class MakersBnb < Sinatra::Base
     request = Request.create(:user  => current_user,
                   :space => Space.first(id: params[:id]),
                   date: date)
-    redirect '/spaces'
+    redirect '/requests'
   end
 
   get "/requests" do
      spaces = Space.all(user_id: current_user.id)
      @received_requests = []
      spaces.each do |space|
-       @received_requests << Request.all(available_date_space_space_id: space.id)
+       @received_requests << Request.all(space_id: space.id)
      end
      @received_requests.flatten!
+     @sent_requests = Request.all(user_id: current_user.id)
      erb :"/requests/index"
    end
 
