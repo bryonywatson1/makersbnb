@@ -3,13 +3,17 @@
 <head>
   <title>Makersbnb</title>
   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script src="../js/validation.js"></script>
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+
 
 </head>
+<div id="logo">Makersbnb</div>
+
 <body>
-  <div id="logo">Makersbnb</div>
   <div id="sign_in">
 
 <% if current_user %>
@@ -18,7 +22,7 @@
      <form method='post' action='/sessions'>
        <input id="welcome_message" type='hidden' name='_method' value='delete'>
        <input id="sign_out" class="button" type='submit' value='Sign out'>
-     </form> | <form method="get" action="/requests">
+     </form><form method="get" action="/requests">
        <input type="submit" value="Requests">
      </form>
    </div>
