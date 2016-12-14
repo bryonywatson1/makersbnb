@@ -11,9 +11,11 @@ class Space
 
   belongs_to :user
 
-  has n, :requests
+  # has n, :requests
 
-  has n, :available_dates, :through => Resource
+  has n, :available_date_spaces
+  has n, :available_dates, :through => :available_date_spaces
+  has n, :requests
 
 
 end

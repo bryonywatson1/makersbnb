@@ -25,5 +25,6 @@ def send_request
   User.create(email: "test@email.com", password: "1234", password_confirmation: "1234")
   sign_in(email: "test@email.com", password: "1234")
   click_button('View space')
+  fill_in :requested_date, with: "16/12/13"
   click_button('Request to book')
 end

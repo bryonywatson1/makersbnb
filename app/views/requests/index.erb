@@ -1,19 +1,18 @@
 <div>Requests I've received</div>
 
 <div>
-  <% @spaces.each do |space| %>
-    <% space.requests.each do |request| %>
+  <% @requests.each do |request| %>
+
         <ul>
-          <li><%=space.name%></li>
-          <li><%=request.user.email%></li>
-          <li>Date:___</li>
+          <li><%= request.space.name %></li>
+          <li><%= request.user.email %></li>
+          <li>Date: <%= request.available_date.date %></li>
           <li>Status: <%= request.status%></li>
         </ul>
         <form action="/requests/booking/<%= request.id%>" method="post">
           <input type="submit" value="Confirm" >
         </form>
-    <% end %>
-  <% end %>
 
+  <% end %>
 
 </div>
