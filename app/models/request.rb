@@ -8,6 +8,7 @@ class Request
   belongs_to :user
   # belongs_to :space
 
+
   belongs_to :available_date_space
 
 end
