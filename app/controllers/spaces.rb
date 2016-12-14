@@ -24,18 +24,21 @@ enable :sessions
     redirect '/spaces'
   end
 
+  get '/spaces/filter' do
+    date = AvailableDate.first(date: (Date.parse(params[:filter_date])))
+    nights = date ? AvailableDateSpace.all(available_date_id: date.id) : []
+    nights.each do |night|
+      @spaces = []
+      @spaces << Space.get(night.space_id)
+    end
+    erb :'spaces/index'
+  end
+
   get '/spaces/:id' do
     @space = Space.first(id: params[:id])
     erb :'/spaces/request'
   end
 
-  post '/spaces/filter' do
-    session[:filter_date] = params[:filter_date]
-    filter_date = session[:filter_date]
-    available_date = AvailableDate.first
-    @spaces = filter_date ? available_date.spaces : []
-    redirect '/spaces'
-  end
 
 
 end

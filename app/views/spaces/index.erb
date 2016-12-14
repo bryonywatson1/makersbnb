@@ -4,14 +4,15 @@
   <input type='submit' value='Add a space'>
 </form>
 
-<form action='/spaces/filter' method='post'>
+<form action='/spaces/filter' method='get'>
   <label for 'filter_date'>
     What date do you want to rent a space? <input name='filter_date' type='date'>
   </label>
   <input type='submit' value='Find spaces'>
 </form>
 
-<% @spaces.each do |space| %>
+<% if @spaces %>
+  <% @spaces.each do |space| %>
 <div>
   Name: <%= space.name %>
 </div>
@@ -32,4 +33,5 @@
     <input type='submit' value='View space'>
   </form>
 
+  <% end %>
 <% end %>
