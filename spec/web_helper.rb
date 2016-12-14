@@ -28,3 +28,10 @@ def send_request
   fill_in :requested_date, with: "16/12/13"
   click_button('Request to book')
 end
+
+def owner_receives_a_request
+  send_request
+  sign_out
+  sign_in(email: "example@email.com", password: "1234")
+  click_button "Requests"
+end

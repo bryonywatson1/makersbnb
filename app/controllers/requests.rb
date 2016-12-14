@@ -12,10 +12,11 @@ class MakersBnb < Sinatra::Base
 
   get "/requests" do
      spaces = Space.all(user_id: current_user.id)
+     @received_requests = []
      spaces.each do |space|
-       @requests = Request.all(available_date_space_space_id: space.id)
+       @received_requests << Request.all(available_date_space_space_id: space.id)
      end
-     p @requests
+     @received_requests.flatten!
      erb :"/requests/index"
    end
 
