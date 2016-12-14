@@ -4,7 +4,9 @@ class MakersBnb < Sinatra::Base
     date = Date.parse(params[:requested_date])
     date1 = AvailableDate.first(date: date)
     request = Request.create(:user  => current_user,
-                  :available_date_space => AvailableDateSpace.first(space_id: params[:id], available_date_id: date1.id))
+                  :available_date_space => AvailableDateSpace.first(space_id: params[:id], available_date_id: date1.id),
+                  :space => Space.first(id: params[:id]),
+                  :available_date => date1)
     redirect '/spaces'
   end
 

@@ -4,9 +4,9 @@
   <% @requests.each do |request| %>
 
         <ul>
-          <li><%= request.available_date_space_space_id %></li>
+          <li><%= request.space.name %></li>
           <li><%= request.user.email %></li>
-          <li>Date: <%= request.available_date_space_available_date_id %></li>
+          <li>Date: <%= request.available_date.date %></li>
           <li>Status: <%= request.status%></li>
         </ul>
         <form action="/requests/booking/<%= request.id%>" method="post">

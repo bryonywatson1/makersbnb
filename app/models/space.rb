@@ -15,6 +15,7 @@ class Space
 
   has n, :available_date_spaces
   has n, :available_dates, :through => :available_date_spaces
+  has n, :requests
 
 
 end
