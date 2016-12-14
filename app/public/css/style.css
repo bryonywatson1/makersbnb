@@ -1,0 +1,23 @@
+#logo {
+  float: left;
+  width: 40px;
+  height: 40px;
+  font-color: red;
+  font-size: 60px;
+  font-family: Copperplate, "Copperplate Gothic Light", fantasy;
+}
+
+#logo, #welcome{
+  display: inline;
+}
+
+#welcome{
+  float: right;
+
+}
+#sign_in{
+  text-align: center;
+}
+#content{
+  text-align:center;
+}
