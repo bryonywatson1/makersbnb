@@ -14,7 +14,12 @@
 
 $(document).ready(function(){
     $("#adds_new_space").submit(function(){
-        alert(startDate);
+      var fromDate = $("#available_from").val();
+      var toDate = $("#available_to").val();
+      if(fromDate >= toDate){
+        alert("To date must be after From date");
+        return false;
+      }
     });
 });
 
