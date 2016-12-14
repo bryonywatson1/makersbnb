@@ -11,23 +11,25 @@ enable :sessions
   end
 
   post '/spaces' do
-    dates = (Date.parse(params[:available_from])..Date.parse(params[:available_to])).to_a.join(",")
-
     space = Space.create(name: params[:name],
                   description: params[:description],
-                  price: params[:price], dates: dates,
+                  price: params[:price], available_from: params[:available_from],
+                  available_to: params[:available_to],
                   :user => current_user)
+    available_dates = (Date.parse(params[:available_from])..Date.parse(params[:available_to])).to_a
+    available_dates.each do |available_date|
+      space.available_dates << AvailableDate.first_or_create(date: available_date)
+    end
+    space.save
     redirect '/spaces'
   end
 
   get '/spaces/filter' do
-    all_spaces = Space.all
-    date = Date.parse(params[:filter_date]).to_s
-    @spaces = []
-    all_spaces.each do |space|
-      if space.dates.split(",").include?(date)
-        @spaces << space
-      end
+    date = AvailableDate.first(date: (Date.parse(params[:filter_date])))
+    nights = date ? AvailableDateSpace.all(available_date_id: date.id) : []
+    nights.each do |night|
+      @spaces = []
+      @spaces << Space.get(night.space_id)
     end
     erb :'spaces/index'
   end

@@ -2,20 +2,20 @@ class MakersBnb < Sinatra::Base
 
   post '/requests/:id' do
     date = Date.parse(params[:requested_date])
+    date1 = AvailableDate.first(date: date)
     request = Request.create(:user  => current_user,
+                  :available_date_space => AvailableDateSpace.first(space_id: params[:id], available_date_id: date1.id),
                   :space => Space.first(id: params[:id]),
-                  date: date)
-    redirect '/requests'
+                  :available_date => date1)
+    redirect '/spaces'
   end
 
   get "/requests" do
      spaces = Space.all(user_id: current_user.id)
-     @received_requests = []
      spaces.each do |space|
-       @received_requests << Request.all(space_id: space.id)
+       @requests = Request.all(available_date_space_space_id: space.id)
      end
-     @received_requests.flatten!
-     @sent_requests = Request.all(user_id: current_user.id)
+     p @requests
      erb :"/requests/index"
    end
 

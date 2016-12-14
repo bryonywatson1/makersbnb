@@ -1,33 +1,17 @@
 <div>Requests I've received</div>
 
 <div>
-  <% @received_requests.each do |request| %>
+  <% @requests.each do |request| %>
 
         <ul>
           <li><%= request.space.name %></li>
           <li><%= request.user.email %></li>
-          <li>Date: <%= request.date %></li>
+          <li>Date: <%= request.available_date.date %></li>
           <li>Status: <%= request.status%></li>
         </ul>
         <form action="/requests/booking/<%= request.id%>" method="post">
           <input type="submit" value="Confirm" >
         </form>
-
-  <% end %>
-
-</div>
-
-<div>Requests I've made</div>
-
-<div>
-  <% @sent_requests.each do |request| %>
-
-        <ul>
-          <li><%= request.space.name %></li>
-          <li>Host: <%= request.space.user.email %></li>
-          <li>Date: <%= request.date %></li>
-          <li>Status: <%= request.status%></li>
-        </ul>
 
   <% end %>
 

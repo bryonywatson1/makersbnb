@@ -4,11 +4,12 @@ class Request
 
   property :id, Serial
   property :status, String, :default => "Not confirmed"
-  property :date, Date
 
   belongs_to :user
   # belongs_to :space
 
   belongs_to :space
+  belongs_to :available_date
+  belongs_to :available_date_space
 
 end
