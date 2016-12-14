@@ -20,4 +20,4 @@ feature 'Filtering spaces' do
 #     expect(page).not_to have_content('London house')
 #   end
 #
-# end
+end

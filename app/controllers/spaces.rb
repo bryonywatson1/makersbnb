@@ -21,11 +21,13 @@ enable :sessions
   end
 
   get '/spaces/filter' do
-    date = AvailableDate.first(date: (Date.parse(params[:filter_date])))
-    nights = date ? AvailableDateSpace.all(available_date_id: date.id) : []
+    all_spaces = Space.all
+    date = Date.parse(params[:filter_date]).to_s
     @spaces = []
-    nights.each do |night|
-      @spaces << Space.get(night.space_id)
+    all_spaces.each do |space|
+      if space.dates.split(",").include?(date)
+        @spaces << space
+      end
     end
     erb :'spaces/index'
   end
