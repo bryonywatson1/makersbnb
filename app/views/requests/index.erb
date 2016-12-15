@@ -1,9 +1,9 @@
-<div>Requests I've received</div>
-
-<div>
+<div id="request-container">
+<div id="received-requests">
+  <h1 class="request-title">Requests I've received</h1>
   <% @received_requests.each do |request| %>
 
-        <ul>
+        <ul class="requests">
           <li><%= request.space.name %></li>
           <li><%= request.user.email %></li>
           <li>Date: <%= request.date %></li>
@@ -17,18 +17,19 @@
 
 </div>
 
-<div>Requests I've made</div>
 
-<div>
+<div id="sent-requests">
+  <h1 class="request-title">Requests I've made</h1>
   <% @sent_requests.each do |request| %>
 
-        <ul>
+        <ul class="requests">
           <li><%= request.space.name %></li>
           <li>Host: <%= request.space.user.email %></li>
           <li>Date: <%= request.date %></li>
           <li>Status: <%= request.status%></li>
         </ul>
 
+        <!-- <div class="clearfix"></div> -->
   <% end %>
-
+</div>
 </div>

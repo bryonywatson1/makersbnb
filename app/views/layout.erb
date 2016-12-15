@@ -44,21 +44,15 @@
              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                  <ul class="nav navbar-nav">
 
+                   <% if current_user %>
                    <li>
                      <div id="welcome-message">welcome, <%= current_user.email %>!</div>
                    </li>
+                   <% end %>
                      <li>
                         <a href="/spaces" id="spaces" class="navigation">Spaces</a>
                      </li>
 
-                       <% if current_user %>
-                        <li>
-                            <form method='post' action='/sessions'>
-                              <input id="welcome_message" type='hidden' name='_method' value='delete'>
-                              <input id="sign_out" class="button" type='submit' value='Sign out'>
-                            </form>
-                             </li>
-                          <% end %>
 
                       <% if current_user %>
                         <li>
@@ -80,20 +74,15 @@
 
      <div class="container">
 
-         <div class="row">
+         <!-- <div class="row"> -->
              <div class="box">
-                 <div class="col-lg-12">
 
-                 </div>
 
-                 <div class="col-md-6">
-                   <div id="content">
 
                     <%= yield %>
-                   </div>                 </div>
                  <div class="clearfix"></div>
              </div>
-         </div>
+         <!-- </div> -->
 
 
      </div>
@@ -103,6 +92,12 @@
          <div class="container">
              <div class="row">
                  <div class="col-lg-12 text-center">
+                   <% if current_user %>
+                     <form id="sign-out-form" method='post' action='/sessions'>
+                       <input id="welcome_message" type='hidden' name='_method' value='delete'>
+                       <input id="sign_out" class="button" type='submit' value='Sign out'>
+                     </form>
+                   <% end %>
                  </div>
              </div>
          </div>
