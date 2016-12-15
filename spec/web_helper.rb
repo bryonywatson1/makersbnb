@@ -33,7 +33,7 @@ def owner_receives_a_request
   send_request
   sign_out
   sign_in(email: "example@email.com", password: "1234")
-  click_button "Requests"
+  click_link "Requests"
 end
 
 def owner_receives_2_requests
@@ -46,5 +46,5 @@ def owner_receives_2_requests
   click_button('Request to book')
   sign_out
   sign_in(email: "example@email.com", password: "1234")
-  click_button "Requests"
+  click_link "Requests"
 end

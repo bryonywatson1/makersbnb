@@ -3,7 +3,6 @@
 <head>
   <title>Makersbnb</title>
   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script src="../js/validation.js"></script>
@@ -11,28 +10,37 @@
 
 
 </head>
-<div id="logo">Makersbnb</div>
 
 <body>
-  <div id="sign_in">
 
-<% if current_user %>
-   <div id="welcome">
-     welcome, <%= current_user.email %>!
-     <form method='post' action='/sessions'>
-       <input id="welcome_message" type='hidden' name='_method' value='delete'>
-       <input id="sign_out" class="button" type='submit' value='Sign out'>
-     </form><form method="get" action="/requests">
+  <div id='menu'>
+    <!-- <form method='get' action='/spaces'>
+      <input type='submit' value='Spaces'>
+    </form> -->
+    <a href="/spaces" id="spaces" class="navigation">Spaces</a>
+
+
+  <% if current_user %>
+     <div id="welcome">
+       <div id="welcome-message">welcome, <%= current_user.email %>!</div>
+       <form method='post' action='/sessions'>
+         <input id="welcome_message" type='hidden' name='_method' value='delete'>
+         <input id="sign_out" class="button" type='submit' value='Sign out'>
+       </form>
+     <!-- </form><form method="get" action="/requests">
        <input type="submit" value="Requests">
-     </form>
-   </div>
-   <% end %>
+     </form> -->
+     <a href="/requests" id="requests" class="navigation">Requests</a>
+     </div>
+     <% end %>
 
-   <% if !current_user %>
-      <form method="get" action="/sessions/new">
-        <input type="submit" value="Sign in ">
-      </form>
-   <% end %>
+     <% if !current_user %>
+        <form method="get" action="/sessions/new">
+          <input class="button" type="submit" value="Sign in ">
+        </form>
+     <% end %>
+     <div id="logo">Makersbnb</div>
+
  </div>
 
     <div id="content">

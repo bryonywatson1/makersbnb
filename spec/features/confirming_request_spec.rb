@@ -18,7 +18,7 @@ feature 'Confirming a request' do
     scenario "user has not received a request" do
       User.create(email: "test@email.com", password: "1234", password_confirmation: "1234")
       sign_in(email: "test@email.com", password: "1234")
-      click_button "Requests"
+      click_link "Requests"
       expect(page).not_to have_selector(:link_or_button, 'Confirm')
     end
 

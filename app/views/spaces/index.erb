@@ -1,15 +1,17 @@
 
 <h1> Spaces </h1>
 
-<form method='get' action='/spaces/new'>
-  <input type='submit' value='Add a space'>
-</form>
+<% if current_user %>
+  <form method='get' action='/spaces/new'>
+    <input class="button" type='submit' value='Add a space'>
+  </form>
+<% end %>
 
 <form action='/spaces/filter' method='get'>
   <label for 'filter_date'>
     What date do you want to rent a space? <input name='filter_date' type='text' id='filter_date'>
   </label>
-  <input type='submit' value='Find spaces'>
+  <input class="button" type='submit' value='Find spaces'>
 </form>
 
 <% if @spaces %>
@@ -31,7 +33,7 @@
 </div>
 
   <form method='get' action='/spaces/<%= space.id %>'>
-    <input type='submit' value='View space'>
+    <input class="button" type='submit' value='View space'>
   </form>
 
   <% end %>
