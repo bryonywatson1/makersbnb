@@ -30,6 +30,12 @@ class MakersBnb < Sinatra::Base
 
     request.update(:status => "Confirmed")
 
+    remove_date = request.date.to_s
+    space_dates = request.space.dates.split(',')
+    space_dates.delete(remove_date)
+    new_dates = space_dates.join(',')
+    request.space.update(:dates => new_dates)
+
     redirect to "/requests"
   end
 
