@@ -28,7 +28,10 @@ $(document).ready(function(){
     });
 
     function available(date) {
-      var ymd = date.getFullYear() + "-" + (date.getMonth()+1) + "-" + date.getDate();
+
+
+      var ymd = date.getFullYear() + "-" + (("0" + (date.getMonth() + 1)).slice(-2)) + "-" + (("0" + date.getDate()).slice(-2));
+      var t = $.inArray(ymd, availableDates);
       if ($.inArray(ymd, availableDates) != -1) {
         return [true, "","Available"];
       } else {
@@ -41,7 +44,5 @@ $(document).ready(function(){
     });
 
     $('#requested_date').datepicker("option","dateFormat","yy-mm-dd");
-
-
 
 });
