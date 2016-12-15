@@ -14,7 +14,7 @@
 
 <form method='post' action='/requests/<%= @space.id %>' id="sending_request">
   <label for 'requested_date'>
-    Choose a date: <input name='requested_date' type='text' id='requested_date' readonly="readonly">
+    Choose a date: <input name='requested_date' type='text' id='requested_date'>
 
   </label>
   <% @space.dates.split(',').each do |date| %>
