@@ -21,4 +21,15 @@ feature 'Requesting a space' do
    expect(page).to have_content("Status: Not confirmed")
  end
 
+ scenario 'once a users request has been confirmed that date is no longer available' do
+   send_request
+   click_button('Sign out')
+   sign_in(email: "example@email.com", password: "1234")
+   click_button('Requests')
+   click_button('Confirm')
+   visit '/spaces'
+   fill_in :filter_date, with: "16/12/14"
+   expect(page).not_to have_content('London house')
+end
+
 end
