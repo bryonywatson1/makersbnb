@@ -2,39 +2,54 @@
 "use strict";
 
 
-  $( function() {
-    $( "#available_from" ).datepicker({ minDate: 0 , dateFormat: "yy-mm-dd"});
-  } );
 
-  $( function() {
-    $("#available_to" ).datepicker({dateFormat: "yy-mm-dd",  minDate: 1});
-  } );
 
 
 
 $(document).ready(function(){
-    $("#adds_new_space").submit(function(){
-      var fromDate = $("#available_from").val();
-      var toDate = $("#available_to").val();
-      if(fromDate >= toDate){
-        alert("To date must be after From date");
-        return false;
-      }
+
+    $("#available_from").datepicker({
+      minDate: 0,
+      dateFormat: "yy-mm-dd"
     });
+    $("#available_to").datepicker({
+      dateFormat: "yy-mm-dd"
+    });
+
+    $("#filter_date").datepicker({
+      minDate: 0,
+      dateFormat: "yy-mm-dd"
+    });
+
+    // $("#requested_date").datepicker({
+    //   minDate: 0,
+    //   dateFormat: "yy-mm-dd"
+    //   // beforeShowDay: check_available_date(available_formatted_dates_list)
+    // });
+
+    $("#available_from, #available_to").on("change", function(){
+      var x=$("#available_from").datepicker("getDate");
+      $( "#available_to" ).datepicker( "option", "minDate",x );
+    });
+
+    var availableDates = [];
+    // fill the available dates list from the hidden fields
+    $("#sending_request input[type=hidden]").each(function() {
+         availableDates.push($(this).val());
+    });
+    //var availableDates = ["2017-5-9","2017-5-14","2017-5-15"];
+
+    function available(date) {
+      var dmy = date.getFullYear() + "-" + (date.getMonth()+1) + "-" + date.getDate();
+      if ($.inArray(dmy, availableDates) != -1) {
+        return [true, "","Available"];
+      } else {
+        return [false,"","unAvailable"];
+      }
+  }
+
+$('#requested_date').datepicker({ beforeShowDay: available });
+
+
+
 });
-
-
-
-
-
-
-
-
-
-$( function() {
-    $("#requested_date" ).datepicker({ minDate: 0 , dateFormat: "yy-mm-dd"});
-  } );
-
-  $( function() {
-      $("#filter_date" ).datepicker({ minDate: 0 , dateFormat: "yy-mm-dd"});
-    } );

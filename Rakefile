@@ -1,4 +1,4 @@
-if ENV['RACK ENV'] != 'production'
+if ENV['RACK_ENV'] != 'production'
   require 'rspec/core/rake_task'
   require './app/app.rb'
 

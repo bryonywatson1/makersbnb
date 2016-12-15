@@ -1,18 +1,18 @@
 <form action='/spaces' method='post' id='adds_new_space'>
   <label for 'name'>
-    Name: <input name='name' type='text'>
+    Name: <input name='name' type='text' required autofocus>
   </label>
   <label for 'description'>
-    Description: <input name='description' type='text'>
+    Description: <input name='description' type='text' required>
   </label>
   <label for 'price'>
-    Price: <input name='price' type='number'>
+    Price: <input name='price' type='number' required>
   </label>
   <label for 'available_from'>
-    Available from: <input name='available_from' type='text' id='available_from'>
+    Available from: <input name='available_from' type='text' id='available_from' required>
   </label>
   <label for 'available_to'>
-    Available to: <input name='available_to' type='text' id='available_to'>
+    Available to: <input name='available_to' type='text' id='available_to' required>
   </label>
   <input type='submit' value='Add space' id='add_space'>
 </form>
