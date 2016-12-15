@@ -23,7 +23,7 @@ $(document).ready(function(){
 
     $("#available_from, #available_to").on("change", function(){
       var x=$("#available_from").datepicker("getDate");
-      $( "#available_to" ).datepicker( "option", "minDate",x );
+      $( "#available_to" ).datepicker( "option", "minDate",x+1 );
     });
 
 });
