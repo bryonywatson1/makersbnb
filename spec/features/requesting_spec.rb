@@ -28,7 +28,7 @@ feature 'Requesting a space' do
    click_button('Requests')
    click_button('Confirm')
    visit '/spaces'
-   fill_in :filter_date, with: "16/12/14"
+   fill_in :filter_date, with: "16/12/13"
    expect(page).not_to have_content('London house')
 end
 
