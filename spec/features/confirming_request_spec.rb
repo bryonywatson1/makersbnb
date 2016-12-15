@@ -22,4 +22,11 @@ feature 'Confirming a request' do
       expect(page).not_to have_selector(:link_or_button, 'Confirm')
     end
 
+    scenario "confirmation changes other requests to denied" do
+      owner_receives_2_requests
+      first(:button, 'Confirm').click
+      expect(page).to have_content "Status: Denied"
+    end
+
+
 end

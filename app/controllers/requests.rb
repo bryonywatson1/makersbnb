@@ -21,7 +21,15 @@ class MakersBnb < Sinatra::Base
 
   post "/requests/booking/:id" do
     request = Request.first(id: params[:id])
+
+    other_requests = Request.all(:date => request.date, :space => request.space)
+
+    other_requests.each do |request|
+      request.update(:status => "Denied")
+    end
+
     request.update(:status => "Confirmed")
+
     redirect to "/requests"
   end
 
