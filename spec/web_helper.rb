@@ -35,3 +35,16 @@ def owner_receives_a_request
   sign_in(email: "example@email.com", password: "1234")
   click_button "Requests"
 end
+
+def owner_receives_2_requests
+  send_request
+  sign_out
+  User.create(email: "test2@email.com", password: "1234", password_confirmation: "1234")
+  sign_in(email: "test2@email.com", password: "1234")
+  click_button('View space')
+  fill_in :requested_date, with: "16/12/13"
+  click_button('Request to book')
+  sign_out
+  sign_in(email: "example@email.com", password: "1234")
+  click_button "Requests"
+end
