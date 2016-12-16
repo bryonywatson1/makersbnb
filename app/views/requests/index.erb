@@ -4,19 +4,20 @@
   <% @received_requests.each do |request| %>
 
         <ul class="requests">
-          <h3 id="space-name"><%= request.space.name %></h3>
+          <h3 id="space-name"><a href='spaces/<%=request.space.id%>'><%= request.space.name %></a></h3>
           <li>GUEST: <%= request.user.email %></li>
           <li>DATE: <%= request.date %></li>
           <li>STATUS: <%= request.status%></li>
           <div id="space-image">
             <img src='<%=request.space.imageurl%>' alt='<%=request.space.name%>' style="width:150px;height:100px;">
           </div>
+          <% if request.status == 'Not confirmed' %>
+          <form action="/requests/booking/<%= request.id%>" method="post">
+            <input class="button" type="submit" value="Confirm" >
+          </form>
+          <% end %>
         </ul>
-        <% if request.status == 'Not confirmed' %>
-        <form action="/requests/booking/<%= request.id%>" method="post">
-          <input class="button" type="submit" value="Confirm" >
-        </form>
-        <% end %>
+
   <% end %>
 
 </div>
@@ -27,7 +28,7 @@
   <% @sent_requests.each do |request| %>
 
         <ul class="requests">
-          <h3 id="space-name"><%= request.space.name %></h3>
+          <h3 id="space-name"><a href='spaces/<%=request.space.id%>'><%= request.space.name %></a></h3>
           <li>HOST: <%= request.space.user.email %></li>
           <li>DATE: <%= request.date %></li>
           <li>STATUS: <%= request.status%></li>
