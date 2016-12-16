@@ -3,7 +3,7 @@
   </head>
   <body>
     <h1>Sign Up</h1>
-    <h4><%=flash[:notice] ||= flash[:errors] %></h4>
+    <h4><%=flash[:notice] %></h4>
     <table>
       <form action="/users" method="POST">
         <tr>
@@ -19,7 +19,7 @@
           <td><input type="password" name="password_confirmation" required/></td>
         </tr>
         <tr>
-          <td colspan="2" align="center"><input type="submit" value="Sign up"></td>
+          <td><input class="button" id="sign-up-button" type="submit" value="Sign up"></td>
         </tr>
       </form>
     </table>

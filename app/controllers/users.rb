@@ -2,6 +2,10 @@ class MakersBnb < Sinatra::Base
 
   get "/users/new" do
     @user = User.new
+    if current_user
+      redirect to("/spaces")
+    end
+    flash.now[:notice] = ""
     erb :"users/new"
   end
 
@@ -11,7 +15,7 @@ class MakersBnb < Sinatra::Base
       session[:user_id] = @user.id
       redirect to("/spaces")
     else
-      flash.now[:notice] = ["Password and confirmation password do not match"]
+      flash.now[:notice] = "Password and confirmation password do not match"
       erb :"users/new"
     end
   end
