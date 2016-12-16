@@ -5,14 +5,14 @@ feature 'Confirming a request' do
       expect(page).to have_content("Requests I've received")
       expect(page).to have_content("London house")
       expect(page).to have_content("2016-12-13")
-      expect(page).to have_content("Status: Not confirmed")
+      expect(page).to have_content("STATUS: Not confirmed")
     end
 
     scenario "owner can confirm the request" do
       owner_receives_a_request
       click_button "Confirm"
       expect(page.current_path).to eq "/requests"
-      expect(page).to have_content "Status: Confirmed"
+      expect(page).to have_content "STATUS: Confirmed"
     end
 
     scenario "user has not received a request" do
@@ -25,7 +25,7 @@ feature 'Confirming a request' do
     scenario "confirmation changes other requests to be denied" do
       owner_receives_2_requests
       first(:button, 'Confirm').click
-      expect(page).to have_content "Status: Denied"
+      expect(page).to have_content "STATUS: Denied"
     end
 
     scenario "once the request is confirmed, confirm button should be disappeared" do
