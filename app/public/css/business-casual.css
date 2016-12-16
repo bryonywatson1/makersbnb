@@ -304,3 +304,17 @@ a:focus {
   margin-top: 10px;
   margin-bottom: 10px;
 }
+
+#each-space {
+  margin-top: 20px;
+  width: 470px;
+}
+
+#info {
+  float: right;
+  width: 300px;
+}
+
+#profile-container {
+  text-align: center;
+}
