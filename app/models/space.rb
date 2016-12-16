@@ -7,6 +7,7 @@ class Space
   property :description, Text
   property :price, Integer
   property :dates, Text
+  property :imageurl, Text
 
   belongs_to :user
 
