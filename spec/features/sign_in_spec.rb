@@ -1,6 +1,6 @@
 feature "User sign in" do
   before do
-    sign_up(email: "example@email.com", password: "1234", password_confirmation: "1234")
+    User.create(email: "example@email.com", password: "1234", password_confirmation: "1234")
   end
 
   scenario "with correct credentials" do

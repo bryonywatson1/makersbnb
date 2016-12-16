@@ -1,8 +1,8 @@
 feature 'Filtering spaces' do
 
   scenario 'can view properties which are available on filter date' do
-    sign_up
     add_space
+    click_button ('Sign out')
     add_space(name: 'Test house', description: 'Test house description', price: '50', available_from: '16/12/15', available_to: '16/12/16')
     fill_in 'filter_date', with: '16/12/16'
     click_button('Find spaces')
@@ -11,8 +11,8 @@ feature 'Filtering spaces' do
   end
 
   scenario 'shows an empty list if no properties available on filter date' do
-    sign_up
     add_space
+    click_button ('Sign out')
     add_space(name: 'Test house', description: 'Test house description', price: '50', available_from: '16/12/15', available_to: '16/12/16')
     fill_in 'filter_date', with: '17/12/16'
     click_button('Find spaces')

@@ -7,6 +7,7 @@ feature "User sign up" do
 
   scenario "I can not sign up with the existing email address" do
     sign_up(email: "example@email.com", password: "1234", password_confirmation: "1234")
+    click_button('Sign out')
     sign_up(email: "example@email.com", password: "hello", password_confirmation: "hello")
     expect{ sign_up }.to change(User, :count).by(0)
   end
