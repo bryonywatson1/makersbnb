@@ -1,8 +1,10 @@
 
+<div class="content-container">
 <h1> Spaces </h1>
 
+
 <% if current_user %>
-<form method='get' action='/spaces/new'>
+<form id="add-space" method='get' action='/spaces/new'>
   <input class="button" type='submit' value='Add a space'>
 </form>
 <% end %>
@@ -21,14 +23,14 @@
     <h3 id="space-name"><%= space.name %></h3>
     <div id="info">
       <div>
-        <%= space.description %>
-      </div>
-      <div>
         £<%= space.price %> per night
       </div>
       <div>
-        Owner: <%= space.user.email %>
+        Host: <%= space.user.email %>
       </div>
+      <form id="view-space-button" method='get' action='/spaces/<%= space.id %>'>
+        <input class="button" type='submit' value='View space'>
+      </form>
     </div>
   <div id="space-image">
     <img src='<%=space.imageurl%>' alt='<%=space.name%>' style="width:150px;height:100px;">
@@ -36,10 +38,8 @@
 </div>
 
 
-<form method='get' action='/spaces/<%= space.id %>'>
-  <input class="button" type='submit' value='View space'>
-</form>
 
 <% end %>
 <% end %>
 <% end %>
+</div>

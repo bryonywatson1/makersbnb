@@ -4,10 +4,10 @@
     <img src='<%=@space.imageurl%>' alt='<%=@space.name%>' style="width:600px;height:400px;">
     <h3><%= @space.name %></h3>
   </div>
-  <div>
+  <div class="space-info">
     <%= @space.description %>
   </div>
-  <div>
+  <div class="space-info">
     £<%= @space.price %> per night
   </div>
   <form method='post' action='/requests/<%= @space.id %>' id="sending_request">
