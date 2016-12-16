@@ -16,11 +16,14 @@ enable :sessions
 
   post '/spaces' do
     dates = (Date.parse(params[:available_from])..Date.parse(params[:available_to])).to_a.join(",")
-
+    if params[:imageurl].empty?
+      params[:imageurl] = 'https://img.buzzfeed.com/buzzfeed-static/static/2014-05/enhanced/webdr02/19/4/enhanced-buzz-wide-29655-1400489139-7.jpg?no-auto'
+    end
     space = Space.create(name: params[:name],
                   description: params[:description],
                   price: params[:price], dates: dates,
                   :user => current_user, imageurl: params[:imageurl])
+
     redirect '/spaces'
   end
 
