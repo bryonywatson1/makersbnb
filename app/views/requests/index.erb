@@ -11,12 +11,13 @@
           <div id="space-image">
             <img src='<%=request.space.imageurl%>' alt='<%=request.space.name%>' style="width:150px;height:100px;">
           </div>
+          <% if request.status == 'Not confirmed' %>
+          <form action="/requests/booking/<%= request.id%>" method="post">
+            <input class="button" type="submit" value="Confirm" >
+          </form>
+          <% end %>
         </ul>
-        <% if request.status == 'Not confirmed' %>
-        <form action="/requests/booking/<%= request.id%>" method="post">
-          <input class="button" type="submit" value="Confirm" >
-        </form>
-        <% end %>
+
   <% end %>
 
 </div>
