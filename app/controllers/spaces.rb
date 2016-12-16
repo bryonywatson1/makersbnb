@@ -16,7 +16,7 @@ enable :sessions
     space = Space.create(name: params[:name],
                   description: params[:description],
                   price: params[:price], dates: dates,
-                  :user => current_user)
+                  :user => current_user, imageurl: params[:imageurl])
     redirect '/spaces'
   end
 

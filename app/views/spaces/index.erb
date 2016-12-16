@@ -29,6 +29,10 @@
 <div>
   Owner: <%= space.user.email %>
 </div>
+<div>
+Picture: <img src='<%=space.imageurl%>' alt='<%=space.name%>' style="width:150px;height:100px;">
+</div>
+
 
   <form method='get' action='/spaces/<%= space.id %>'>
     <input class="button" type='submit' value='View space'>

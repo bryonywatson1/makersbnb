@@ -8,6 +8,8 @@
 <div>
   Price per night: £<%= @space.price %>
 </div>
+ <img src='<%=@space.imageurl%>' alt='<%=@space.name%>' style="width:600px;height:400px;">
+
 
 <form method='post' action='/requests/<%= @space.id %>' id="sending_request">
   <label for 'requested_date'>
