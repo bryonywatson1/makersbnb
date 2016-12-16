@@ -1,13 +1,13 @@
 <div id="profile-container">
-  <h1>Make a request</h1>
+  <h1><%= @space.name %></h1>
   <div>
     <img src='<%=@space.imageurl%>' alt='<%=@space.name%>' style="width:600px;height:400px;">
-    <h3><%= @space.name %></h3>
+    <h3>Make a request</h3>
   </div>
-  <div>
+  <div class="space-info">
     <%= @space.description %>
   </div>
-  <div>
+  <div class="space-info">
     £<%= @space.price %> per night
   </div>
   <form method='post' action='/requests/<%= @space.id %>' id="sending_request">

@@ -2,24 +2,26 @@
 <head>
 </head>
 <body>
-  <h1>Sign In</h1>
-  <h4><%=flash[:notice] ||= flash[:errors] %></h4>
-  <table>
-    <form action="/sessions" method="Post">
-      <tr>
-        <td>Email</td>
-        <td><input type="email" name="email" autofocus /></td>
-      </tr>
-      <tr>
-        <td>Password</td>
-        <td><input type="password" name="password" /></td>
-      </tr>
-      <tr>
-        <td><input class="button" id="sign-in-button" type="submit" value="Sign in"></td>
-      </tr>
-    </form>
+  <div class="content-container">
+    <h1>Sign In</h1>
+    <h4><%=flash[:notice] ||= flash[:errors] %></h4>
 
-  </table>
-  Don't have an account? <a id="sign-up" href="/users/new">Sign up here</a>
+    <form action="/sessions" method="Post">
+      <div class="form">
+        Email
+        <input type="email" name="email" autofocus />
+      </div>
+      <br>
+      <div class="form">
+        Password
+        <input type="password" name="password" />
+      </div>
+      <br>
+      <div class="form">
+        <input class="button" id="sign-in-button" type="submit" value="Sign in">
+      </div>
+    </form>
+    Don't have an account? <a id="sign-up" href="/users/new">Sign up here</a>
+  </div>
 </body>
 </html>

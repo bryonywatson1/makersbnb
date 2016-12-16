@@ -302,12 +302,15 @@ a:focus {
 
 #sign-in-button {
   margin-top: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 25px;
 }
 
 #each-space {
-  margin-top: 20px;
+  margin-top: 40px;
   width: 470px;
+  margin: auto;
+  padding-bottom: 15px;
+  border-bottom: 1px dotted grey;
 }
 
 #info {
@@ -317,4 +320,33 @@ a:focus {
 
 #profile-container {
   text-align: center;
+}
+
+.space-info {
+  width: 45%;
+  margin: auto;
+  padding-bottom: 20px;
+}
+
+#add-space {
+  margin-bottom: 15px;
+}
+
+.content-container {
+  text-align: center;
+}
+
+#view-space-button {
+  margin-top: 15px;
+}
+
+.input {
+  margin-left: 15px;
+  border-radius: 5%;
+  border: 1px solid #d3d3d3;
+  padding: 2px 0;
+}
+
+#second-sign-in-button {
+  margin-bottom: 15px;
 }
