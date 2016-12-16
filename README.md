@@ -3,66 +3,6 @@
 
 This project aimed to replicate Airbnb, providing users with an interface to either rent out spaces or book them.
 
-## USER STORIES
-
-We agreed on a number of user stories to make sure we all had a clear understanding of the requirements for the user
-
-```
-As a user
-So that I can rent out my space
-I want to be able to sign up
-
-As a user
-So that I can rent out my space
-I need to be able to login
-
-As a user
-So that I can end my session
-I need to be able to logout
-
-As a user
-So that I can rent out my space
-I need to be able to add my space with a name
-
-As a user
-So that I can give details of my space
-I need to be able to give it a description
-
-As a user
-So that I can give details of my space
-I need to be able to give it a price per night
-
-As a user
-So that my property can not be booked when not available
-I need to be able to offer a range of dates when the property is available
-
-
-As a user
-So that I can decide which property to choose
-I want to see a list of properties
-
-As a user
-So that I can request to book a property I like
-I want to be able to send a request form to the owner
-
-As a user
-So that I can confirm that I want to rent out a requested property
-I want to be able to approve requests for my property
-
-As a user
-So that I can review request from different users
-I want my property to  still be available to request until I have confirmed a booking
-
-As a user
-So that I can rent out a few of my properties
-I need to be able to list multiple spaces
-
-As a user
-So that I can not book a property which is not available
-Nights for which a space has already been booked should not be available for me to book that space
-```
-
-
 ## Getting Started
 
 To get started,fork this repo and clone it on your local system.
