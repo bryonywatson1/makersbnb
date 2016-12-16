@@ -1,6 +1,10 @@
 class MakersBnb < Sinatra::Base
   get "/" do
+    if current_user
+      redirect to("/spaces")
+    end
     erb :"sessions/new"
+
   end
 
   post "/sessions" do
@@ -15,6 +19,9 @@ class MakersBnb < Sinatra::Base
   end
 
   get "/sessions/new" do
+    if current_user
+      redirect to("/spaces")
+    end
     erb :"sessions/new"
   end
 

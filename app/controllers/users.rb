@@ -2,6 +2,9 @@ class MakersBnb < Sinatra::Base
 
   get "/users/new" do
     @user = User.new
+    if current_user
+      redirect to("/spaces")
+    end
     flash.now[:notice] = ""
     erb :"users/new"
   end
