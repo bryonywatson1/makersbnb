@@ -2,6 +2,7 @@ class MakersBnb < Sinatra::Base
 
   get "/users/new" do
     @user = User.new
+    flash.now[:notice] = ""
     erb :"users/new"
   end
 
