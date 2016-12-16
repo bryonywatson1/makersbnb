@@ -1,8 +1,9 @@
 <html>
 <head>
-  <h4><%=flash[:notice] ||= flash[:errors] %></h4>
 </head>
 <body>
+  <h1>Sign In</h1>
+  <h4><%=flash[:notice] ||= flash[:errors] %></h4>
   <table>
     <form action="/sessions" method="Post">
       <tr>
@@ -14,14 +15,11 @@
         <td><input type="password" name="password" /></td>
       </tr>
       <tr>
-        <td colspan="2" align="center"><input type="submit" value="Sign in"></td>
+        <td><input class="button" id="sign-in-button" type="submit" value="Sign in"></td>
       </tr>
-    </form>
-    Don't have an account? Sign up here:
-    <form method="get" action="/users/new">
-      <input class="button" type="submit" value="Sign up">
     </form>
 
   </table>
+  Don't have an account? <a id="sign-up" href="/users/new">Sign up here</a>
 </body>
 </html>

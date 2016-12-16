@@ -260,10 +260,13 @@ footer p {
 
 #welcome-message {
   padding-top: 15px;
+  width: 500px;
+  text-align: center;
 }
 
 a {
   text-decoration: none;
+  color: black;
 }
 
 a:visited {
@@ -286,4 +289,18 @@ a:focus {
 
 #sign-out-form {
   text-align: center;
+}
+
+#sign-up {
+  font-weight: bold;
+}
+
+#sign-up-button {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#sign-in-button {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }

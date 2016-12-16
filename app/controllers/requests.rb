@@ -1,6 +1,11 @@
 class MakersBnb < Sinatra::Base
 
+
   post '/requests/:id' do
+    if !current_user
+      flash.keep[:notice] = "You must login to request a space"
+      redirect '/sessions/new'
+    end
     date = Date.parse(params[:requested_date])
     request = Request.create(:user  => current_user,
                   :space => Space.first(id: params[:id]),
@@ -9,6 +14,9 @@ class MakersBnb < Sinatra::Base
   end
 
   get "/requests" do
+    if !current_user
+      redirect '../sessions/new'
+    end
      spaces = Space.all(user_id: current_user.id)
      @received_requests = []
      spaces.each do |space|

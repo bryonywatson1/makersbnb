@@ -7,6 +7,10 @@ enable :sessions
   end
 
   get '/spaces/new' do
+    if !current_user
+      flash.keep[:notice] = "You must login to list a space"
+      redirect '/sessions/new'
+    end
     erb :'spaces/new'
   end
 
