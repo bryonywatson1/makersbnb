@@ -16,6 +16,7 @@
 
 <% if @spaces %>
   <% @spaces.each do |space| %>
+  <% if space.dates.empty? == false %>
 <div>
   Name: <%= space.name %>
 </div>
@@ -33,5 +34,6 @@
     <input class="button" type='submit' value='View space'>
   </form>
 
+  <% end %>
   <% end %>
 <% end %>
