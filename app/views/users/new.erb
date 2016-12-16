@@ -1,27 +1,29 @@
 <html>
-  <head>
-  </head>
-  <body>
+<head>
+</head>
+<body>
+  <div class="content-container">
     <h1>Sign Up</h1>
     <h4><%=flash[:notice] %></h4>
-    <table>
-      <form action="/users" method="POST">
-        <tr>
-          <td>Email</td>
-          <td><input type="email" name="email" value="<%=@user.email%>" required autofocus/></td>
-        </tr>
-        <tr>
-          <td>Password</td>
-          <td><input type="password" name="password" required/></td>
-        </tr>
-        <tr>
-          <td>Confirm Password</td>
-          <td><input type="password" name="password_confirmation" required/></td>
-        </tr>
-        <tr>
-          <td><input class="button" id="sign-up-button" type="submit" value="Sign up"></td>
-        </tr>
-      </form>
-    </table>
-  </body>
+    <form action="/users" method="post">
+      <div class="form">
+        Email
+        <input class="input" type="email" name="email" value="<%=@user.email%>" required autofocus/>
+      </div>
+      <br>
+      <div class="form">
+        Password
+        <input class="input" type="password" name="password" required/>
+      </div>
+      <br>
+      <div class="form">
+        Confirm Password
+        <input class="input" type="password" name="password_confirmation" required/>
+      </div>
+      <div class="form">
+        <input class="button" id="sign-up-button" type="submit" value="Sign up">
+      </div>
+    </form>
+  </div>
+</body>
 </html>
