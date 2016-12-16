@@ -4,7 +4,7 @@
   <% @received_requests.each do |request| %>
 
         <ul class="requests">
-          <h3 id="space-name"><%= request.space.name %></h3>
+          <h3 id="space-name"><a href='spaces/<%=request.space.id%>'><%= request.space.name %></a></h3>
           <li>GUEST: <%= request.user.email %></li>
           <li>DATE: <%= request.date %></li>
           <li>STATUS: <%= request.status%></li>
@@ -28,7 +28,7 @@
   <% @sent_requests.each do |request| %>
 
         <ul class="requests">
-          <h3 id="space-name"><%= request.space.name %></h3>
+          <h3 id="space-name"><a href='spaces/<%=request.space.id%>'><%= request.space.name %></a></h3>
           <li>HOST: <%= request.space.user.email %></li>
           <li>DATE: <%= request.date %></li>
           <li>STATUS: <%= request.status%></li>
