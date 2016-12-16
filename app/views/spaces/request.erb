@@ -8,10 +8,7 @@
 <div>
   Price per night: £<%= @space.price %>
 </div>
-<div>
-  dates: <%= @space.dates.split(',') %>
-</div>
-
+  
 <form method='post' action='/requests/<%= @space.id %>' id="sending_request">
   <label for 'requested_date'>
     Choose a date: <input name='requested_date' type='text' id='requested_date' required>
@@ -20,5 +17,5 @@
   <% @space.dates.split(',').each do |date| %>
   <input type="hidden" value='<%= date %>'>
   <% end %>
-  <input type='submit' value='Request to book'>
+  <input class="button" type='submit' value='Request to book'>
 </form>

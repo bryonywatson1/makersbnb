@@ -25,7 +25,7 @@ feature 'Requesting a space' do
    send_request
    click_button('Sign out')
    sign_in(email: "example@email.com", password: "1234")
-   click_button('Requests')
+   click_link('Requests')
    click_button('Confirm')
    visit '/spaces'
    fill_in :filter_date, with: "16/12/13"

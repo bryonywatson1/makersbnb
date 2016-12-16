@@ -2,41 +2,111 @@
 <html>
 <head>
   <title>Makersbnb</title>
+  <!-- Bootstrap Core CSS -->
+  <link href="css/bootstap.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link href="/css/business-casual.css" rel="stylesheet">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
+
   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script src="../js/validation.js"></script>
-  <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <!-- <link rel="stylesheet" type="text/css" href="/css/style.css"> -->
 
 
 </head>
-<div id="logo">Makersbnb</div>
 
 <body>
-  <div id="sign_in">
 
-<% if current_user %>
-   <div id="welcome">
-     welcome, <%= current_user.email %>!
-     <form method='post' action='/sessions'>
-       <input id="welcome_message" type='hidden' name='_method' value='delete'>
-       <input id="sign_out" class="button" type='submit' value='Sign out'>
-     </form><form method="get" action="/requests">
-       <input type="submit" value="Requests">
-     </form>
-   </div>
-   <% end %>
+  <div class="brand">Makersbnb</div>
 
-   <% if !current_user %>
-      <form method="get" action="/sessions/new">
-        <input type="submit" value="Sign in ">
-      </form>
-   <% end %>
- </div>
+     <!-- Navigation -->
+     <nav class="navbar navbar-default" role="navigation">
+         <div class="container">
+             <!-- Brand and toggle get grouped for better mobile display -->
+             <div class="navbar-header">
+                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                     <span class="sr-only">Toggle navigation</span>
+                     <span class="icon-bar"></span>
+                     <span class="icon-bar"></span>
+                     <span class="icon-bar"></span>
+                 </button>
+                 <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
+                 <a class="navbar-brand" href="index.html">Makersbnb</a>
+             </div>
+             <!-- Collect the nav links, forms, and other content for toggling -->
+             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                 <ul class="nav navbar-nav">
 
-    <div id="content">
-     <%= yield %>
-    </div>
+                   <% if current_user %>
+                   <li>
+                     <div id="welcome-message">welcome, <%= current_user.email %>!</div>
+                   </li>
+                   <% end %>
+                     <li>
+                        <a href="/spaces" id="spaces" class="navigation">Spaces</a>
+                     </li>
+
+
+                      <% if current_user %>
+                        <li>
+                       <a href="/requests" id="requests" class="navigation">Requests</a>
+                     </li>
+                     <% end %>
+
+                     <% if !current_user %>
+                     <li>
+                          <form method="get" action="/sessions/new">
+                            <input class="button" type="submit" value="Sign in ">
+                          </form>
+                     </li>
+                     <% end %>
+                 </ul>
+           </div>
+         </div>
+     </nav>
+
+     <div class="container">
+
+         <!-- <div class="row"> -->
+             <div class="box">
+
+
+
+                    <%= yield %>
+                 <div class="clearfix"></div>
+             </div>
+         <!-- </div> -->
+
+
+     </div>
+     <!-- /.container -->
+
+     <footer>
+         <div class="container">
+             <div class="row">
+                 <div class="col-lg-12 text-center">
+                   <% if current_user %>
+                     <form id="sign-out-form" method='post' action='/sessions'>
+                       <input id="welcome_message" type='hidden' name='_method' value='delete'>
+                       <input id="sign_out" class="button" type='submit' value='Sign out'>
+                     </form>
+                   <% end %>
+                 </div>
+             </div>
+         </div>
+     </footer>
+
+
+
+
+
+
  </body>
  </html>

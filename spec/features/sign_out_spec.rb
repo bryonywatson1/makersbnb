@@ -7,6 +7,6 @@ feature "User sign out" do
     sign_in(email: "example@email.com", password: "1234")
     click_button "Sign out"
     expect(page).to have_content("Goodbye!")
-    expect(page).not_to have_content("Spaces")
+    expect(page).not_to have_content("Sign out")
   end
 end
