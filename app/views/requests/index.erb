@@ -5,14 +5,15 @@
 
         <ul class="requests">
           <li><%= request.space.name %></li>
-          <li><%= request.user.email %></li>
+          <li>Guest: <%= request.user.email %></li>
           <li>Date: <%= request.date %></li>
           <li>Status: <%= request.status%></li>
         </ul>
+        <% if request.status == 'Not confirmed' %>
         <form action="/requests/booking/<%= request.id%>" method="post">
           <input class="button" type="submit" value="Confirm" >
         </form>
-
+        <% end %>
   <% end %>
 
 </div>
@@ -28,8 +29,6 @@
           <li>Date: <%= request.date %></li>
           <li>Status: <%= request.status%></li>
         </ul>
-
-        <!-- <div class="clearfix"></div> -->
   <% end %>
 </div>
 </div>
