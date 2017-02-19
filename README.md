@@ -3,6 +3,8 @@
 
 This project aimed to replicate Airbnb, providing users with an interface to either rent out spaces or book them.
 
+Heroku link here: https://davidbnb.herokuapp.com/spaces
+
 ## Getting Started
 
 To get started,fork this repo and clone it on your local system.
